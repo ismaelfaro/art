@@ -17,6 +17,8 @@ screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
 #set up the colors
 white = (255, 255, 255)
 black = (  0,   0,   0)
+grey = (128, 128, 128)
+red = (255, 0, 0)
 
 
 #set up center of screen
@@ -58,12 +60,9 @@ fresult = open("poem_AI-2.txt", "r")
 while running:
     # Look at every event in the queue
     for event in pygame.event.get():
-        # Did the user hit a key?
-        # if event.type == pygame.KEYDOWN:
-        #     # Was it the Escape key? If so, stop the loop.
+        #  Was it the Escape key? If so, stop the loop.
         if event.type == pygame.K_ESCAPE:
             running = False
-
         # Did the user click the window close button? If so, stop the loop.
         elif event.type == pygame.QUIT:
             running = False
@@ -101,7 +100,7 @@ while running:
         AI_poem = result
         print(result)
 
-        new_poem_surface_obj = font_obj_new_text.render( AI_poem, True, white)
+        new_poem_surface_obj = font_obj_new_text.render( AI_poem, True, red)
         new_poem_rect_obj = new_poem_surface_obj.get_rect()
         new_poem_rect_obj.topleft = (20, 20+row)
 
@@ -115,17 +114,18 @@ while running:
         # Look at every event in the queue
         for event in pygame.event.get():
             # Did the user hit a key?
-            # if event.type == pygame.KEYDOWN:
-            #     # Was it the Escape key? If so, stop the loop.
-            if event.type == pygame.K_ESCAPE:
-                running = False
+            if event.type == pygame.KEYDOWN:
+            #  Was it the Escape key? If so, stop the loop.
+                if event.key == K_ESCAPE:
+                    pygame.quit()   
 
             # Did the user click the window close button? If so, stop the loop.
             elif event.type == pygame.QUIT:
-                running = False
+                pygame.quit()   
             
  
     # Update the display
     pygame.display.update()
     
+pygame.quit()    
     
