@@ -14,7 +14,7 @@ In the filename you can see what language it is written in.
 
 
 
-# Licence
+# License
 
 Copyright 2021, Maria de los Angeles Martinez Estevez
 
