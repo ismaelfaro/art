@@ -8,6 +8,6 @@ Human Poems Author: Marcos de la Fuente.
 
 You can find the poems at poems folder. 
 In the filename you can see what language it is written in.
-.es = Spanish
-.ga = Galician
-.en = English
+- .es = Spanish
+- .ga = Galician
+- .en = English
