@@ -18,8 +18,10 @@ function setup() {
   fill(220);
   text(poemGenerate.join("\n"), x, y, 420, 420);
   // console.log(poemGenerate)
-  sub_poems = poemGenerate.slice(0, 200)
-  distances = calculateDistance(sub_poems)
+  sub_poems = poemGenerate.slice(0, 100)
+  distances = calculateDistance(poemGenerate)
+  // distances = [[0,0,2,1,2,2,3,1,1,1,1,0,0,1,-1,-4,-4]]
+
   drawTree(distances)
 
 }
@@ -32,7 +34,20 @@ function draw() {
 function mouseClicked() {
  
 }
-    
+   
+
+function createLine(points, strokeLevel){
+  noFill();
+  stroke(255, 255, 255);
+  strokeWeight(strokeLevel);
+  beginShape();
+  for(point in points){
+    vertex(points[point][0],points[point][1]);
+  }
+
+  endShape();
+}
+
 function createCurve(points, strokeLevel){
   noFill();
   stroke(255, 255, 255);
@@ -81,15 +96,24 @@ function calculateDistance(poems){
 function generateBranch(toLine, xpos, ypos, width, height){
   branchPoints =  []
   lastPoint = 0
+  point = [xpos, ypos]
+  branchPoints.push(point)
+  angle = 0
   toLine.forEach((element, index) => {
     
       // lastPoint = (index-toLine.length)
       // lastPoint = (index)
       // point = [xpos, ypos - index*4]
       
-      // V1
-      lastPoint += element*width
-      point = [lastPoint + xpos, ypos -index*height ]
+      // V2
+      angle = (element+angle)
+      lastPoint += (Math.atan(angle/Math.PI))*(toLine.length-index)
+
+      point = [(lastPoint * width) + xpos, ypos-index*height]
+
+      // // V1
+      // lastPoint += element*width
+      // point = [lastPoint + xpos, ypos -index*height ]
 
       branchPoints.push(point)
   })
@@ -103,9 +127,10 @@ function drawTree(poemdistances){
   
    // TODO: all the lines
   poemdistances.forEach((distances, index) =>{
-    branchPoints = generateBranch(distances, xpos, ypos, 5, 3.5)
+    // branchPoints = generateBranch(distances, xpos, ypos, 5, 3.5)
+    branchPoints = generateBranch(distances, xpos, ypos, 0.02, 3.6 ) // V2
     console.log(branchPoints)
-    createCurve(branchPoints,2*(250-index)/100) // V1
+    createLine(branchPoints,2*(250-index)/100) // V1
     // createCurve(branchPoints,1)
 
     
