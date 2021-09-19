@@ -6,7 +6,6 @@ let poemGenerate = [];
 
 function preload() {
   poemGenerate = loadStrings('poems/picasso_in_botswana.en.AI.txt');
-  
 }
 
 function setup() {
@@ -16,7 +15,7 @@ function setup() {
   textAlign(LEFT);
   background(50, 30, 40);
   fill(220);
-  text(poemGenerate.join("\n"), x, y, 420, 420);
+  text(poemGenerate.join("\n"), x, y, windowWidth, windowHeight);
   // console.log(poemGenerate)
   sub_poems = poemGenerate.slice(0, 100)
   distances = calculateDistance(poemGenerate)
