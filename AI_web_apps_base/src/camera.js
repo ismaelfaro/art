@@ -7,6 +7,12 @@ var ascii_arr;
 var poemGenerate=[];
 var wordCounter=0;
 var next = true;
+let mic;
+let speed = 300
+
+let startTime = Math.ceil((Date.now() / speed))
+
+console.log(startTime)
 function initCaptureDevice() {
   try {
     myCapture = createCapture(VIDEO);
@@ -30,7 +36,7 @@ function preload() {
 
 function setup() {
   poemGenerate=poemGenerate[poemGenerate.length-1]
-  createCanvas(windowWidth, windowHeight);
+  cnv=createCanvas(windowWidth, windowHeight);
   initCaptureDevice(); 
   gfx = createGraphics(asciiart_width, asciiart_height);
   gfx.pixelDensity(1);
@@ -38,7 +44,12 @@ function setup() {
   // myAsciiArt.printWeightTable();
   textAlign(CENTER, CENTER); textFont('monospace', 8); textStyle(BOLD);textWrap(WORD);
   strokeWeight(2); fill(100);
+  cnv.mousePressed(userStartAudio);
+  mic = new p5.AudioIn();
+  mic.start();
+
   frameRate(15);
+
 }
 
 
@@ -47,7 +58,10 @@ if(myCapture !== null && myCapture !== undefined) {
     background(0);
     gfx.background(0);
     gfx.image(myCapture, 0, 0, gfx.width, gfx.height);
-    gfx.filter(POSTERIZE, 4);
+    micLevel = mic.getLevel()*100;
+    let level = micLevel % 20;
+    
+    gfx.filter(POSTERIZE, level+2);
     ascii_arr = myAsciiArt.convert(gfx);
     textAlign(LEFT, CENTER); textFont('monospace', 12)
     fill(150);
@@ -78,7 +92,7 @@ if(myCapture !== null && myCapture !== undefined) {
       function code from a non-minimized version of the library - it can be
       used as a base for your own experiments.
     */
-      printPoem(1.5)
+      printPoem(1)
   }
   else {
     background(255, 0, 0);
@@ -91,14 +105,16 @@ function mouseClicked() {
    
 function printPoem(time){
 
-  step = int((Date.now() / 1000) % time);
+  // step = int((Date.now() / 1000) % time);
 
-  if (step==0 & next==true){
-    wordCounter = (wordCounter+1) % poemGenerate.length;
-    next=false;
-  }else{
-    next=true
-  }
+  wordCounter = (Math.ceil((Date.now() / speed)) - startTime) % poemGenerate.length
+
+  // if (step==0 & next==true){
+  //   wordCounter = (wordCounter+1) % poemGenerate.length;
+  //   next=false;
+  // }else{
+  //   next=true
+  // }
 
   textAlign(LEFT, CENTER); textFont('monospace', 32); textStyle(BOLD);
   thetext = poemGenerate.split(" ").splice(0,wordCounter).join(" ")
