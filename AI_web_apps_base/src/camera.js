@@ -49,9 +49,10 @@ if(myCapture !== null && myCapture !== undefined) {
     gfx.image(myCapture, 0, 0, gfx.width, gfx.height);
     gfx.filter(POSTERIZE, 4);
     ascii_arr = myAsciiArt.convert(gfx);
-    textAlign(LEFT, CENTER); textFont('monospace', 8)
+    textAlign(LEFT, CENTER); textFont('monospace', 12)
+    fill(150);
     myAsciiArt.typeArray2d(ascii_arr, this);
-    tint(255, 60);
+    tint(255, 100);
     image(myCapture, 0, 0, width, height);
     /*
       Now it's time to show ASCII art on the screen. First, we set drawing
