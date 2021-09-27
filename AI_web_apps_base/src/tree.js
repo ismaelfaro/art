@@ -138,3 +138,12 @@ function drawTree(poemdistances){
   
 
 }
+
+
+function mousePressed() {
+  if (mouseX > 0 && mouseX < windowWidth && mouseY > 0 && mouseY < windowHeight) {
+    // let fs = fullscreen();
+    fullscreen(true);
+    background(0,0,0);  
+  }
+}
