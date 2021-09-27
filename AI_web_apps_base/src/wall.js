@@ -58,16 +58,16 @@ function mouseClicked() {
    
 function center_box(x,y, texto){
   fill("black")
-  rect(windowWidth/2-100, windowHeight/2-50, 200, 100);
+  rect(windowWidth/2-130, windowHeight/2-130, 260, 260);
   noStroke();
   textAlign(CENTER, CENTER);
   fill(0, 102, 153);
   textSize(36)
-  text(texto, x+100, y+50);
+  text(texto, x+130, y+130);
   noFill();
   stroke('white');
   strokeWeight(4);
-  rect(x, y, 200, 100);
+  rect(x, y, 260, 260);
 
 
 }
@@ -88,7 +88,7 @@ function poem(number){
   backTextSize = 3;
 
   word = listOfWords[number]
-  center_box(windowWidth/2-100,windowHeight/2-50,word) ;
+  center_box(windowWidth/2-130,windowHeight/2-130,word) ;
   iniText = ""
 
 
@@ -109,9 +109,14 @@ function poem(number){
 
 function printPoems(){
   
-  line = (Math.ceil((Date.now() / speed)) - startTime) % poemGenerate.length
+  line = (Math.ceil((Date.now() / speed)) - startTime) % poemGenerate.length;
 
-  poem(line)
+  poem(line);
+
+  if (line === listOfWords.length + 1){
+    finish()
+    noLoop();
+  }
 
 }
 
@@ -122,4 +127,25 @@ function mousePressed() {
     startTime = Math.ceil((Date.now() / speed))
     background(0,0,0);  
   }
+}
+
+
+function finish(){
+  background(0,0,0);
+  originWord = ''
+  for (let i = 0; i < listOfWords.length ; i++){
+    
+
+    originWord = originWord+ " " +listOfWords[i];
+    textSize(7);
+    originWordNextPositionInY = i * backTextSize + backTextSize;
+    backgroundText(originWord, backTextSize, 0 , originWordNextPositionInY, 'white');
+
+    
+    aux = poemGenerate[i];
+    backgroundText(aux.slice(originWord.length), backTextSize, textWidth(originWord)+ 3,  originWordNextPositionInY, "red");
+  }
+
+  
+
 }
