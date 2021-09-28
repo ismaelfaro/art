@@ -128,15 +128,11 @@ function drawTree(poemdistances){
   poemdistances.forEach((distances, index) =>{
     // branchPoints = generateBranch(distances, xpos, ypos, 5, 3.5)
     branchPoints = generateBranch(distances, xpos, ypos, 0.02, 3.6 ) // V2
-    console.log(branchPoints)
     createLine(branchPoints,2*(250-index)/100) // V1
     // createCurve(branchPoints,1)
-
-    
     
   })
   
-
 }
 
 
@@ -146,4 +142,9 @@ function mousePressed() {
     fullscreen(true);
     background(0,0,0);  
   }
+}
+
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }

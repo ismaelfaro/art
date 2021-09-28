@@ -149,3 +149,7 @@ function finish(){
   
 
 }
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}

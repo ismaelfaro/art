@@ -1,13 +1,17 @@
-The purpose of the project is to merge the poems written by a human with the interpretation of an artificial intelligence, to understand how the interpretation of a virtual machine approach the vision of human author through their cognitive learning.
 
-Human Poems Author: Marcos de la Fuente.
+Simple base to combine AI + Art.
 
+## Setup
 
+All the dependencis are included in the package. The only thing that you should have installed is npm/npx installed to run in local the webapps.
 
+## Run the web app in local
 
+> npx live-server
 
-You can find the poems at poems folder. 
-In the filename you can see what language it is written in.
-- .es = Spanish
-- .ga = Galician
-- .en = English
+## acknowledgement
+
+Thanks to the [p5.js](https://p5js.org) community for their inmense work.
+
+Thanks to Marcos de la Puente poet to impulse this collaboration to connect Art + AI.
+

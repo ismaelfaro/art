@@ -18,7 +18,6 @@ function generateMap(words){
   
 }
 
-
 function setup() {
   poemGenerate=poemGenerate[poemGenerate.length-1]
   poemWords = poemGenerate.split(" ")
@@ -34,15 +33,11 @@ function setup() {
 
 
 function draw() {
-
     background(0);
     printNetwork(word)
     word = printwords()
-    
-   
 }
 
-   
 function printNetwork(word){
   let previousPoint = {x:windowWidth/2,y:windowHeight}
   textSize(16)
@@ -90,3 +85,6 @@ function mousePressed() {
   }
 }
 
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
