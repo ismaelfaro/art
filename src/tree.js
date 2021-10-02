@@ -30,11 +30,13 @@ function setup() {
 }
 
 function draw() {
-  background(50, 30, 40);
-  fill(220);
+  // background(50, 30, 40);
+  background(0);
+  fill(0);
   // text(poemGenerate.join("\n"), 0, 0, windowWidth, windowHeight);
   poemcount = (Math.ceil((Date.now() / speed)) - startTime) % poemsLength
   drawTree(poemcount)
+  // drawTreeInvert(poemcount)
   // movement =  Math.ceil((Date.now() /100 % 20))
   movement =  Math.ceil(Math.sin((Date.now() /10 ) ))
   
@@ -107,7 +109,7 @@ function calculateDistance(poems){
   return poemdistances
 }
 
-function generateBranch(toLine, xpos, ypos, width, height){
+function generateBranch(toLine, xpos, ypos, width, height, orientation){
   branchPoints =  []
   lastPoint = 0
   point = [xpos, ypos]
@@ -119,7 +121,7 @@ function generateBranch(toLine, xpos, ypos, width, height){
       angle = (element+angle)
       lastPoint += (Math.atan(angle/Math.PI))*(toLine.length-index)
 
-      point = [(lastPoint * width) + xpos, ypos-index*height]
+      point = [(lastPoint * width) + xpos, ypos-index*orientation*height]
 
       // // V1
       // lastPoint += element*width
@@ -138,7 +140,23 @@ function drawTree(count){
    // TODO: all the lines
   sub.forEach((distances, index) =>{
     // branchPoints = generateBranch(distances, xpos, ypos, 5, 3.5)
-    branchPoints = generateBranch(distances, xpos, ypos, 0.02, 3.6 ) // V2
+    branchPoints = generateBranch(distances, xpos, ypos, 0.02, 3.6,1 ) // V2
+    createLine(branchPoints,2*(250-index)/100, index) // V1
+    // createCurve(branchPoints,1)
+    
+  })
+  
+}
+
+function drawTreeInvert(count){
+
+  xpos = windowWidth/2
+  ypos = 0
+  sub = poemsBranch.slice(0,count)
+   // TODO: all the lines
+  sub.forEach((distances, index) =>{
+    // branchPoints = generateBranch(distances, xpos, ypos, 5, 3.5)
+    branchPoints = generateBranch(distances, xpos, ypos, 0.02, 2 ,-1) // V2
     createLine(branchPoints,2*(250-index)/100, index) // V1
     // createCurve(branchPoints,1)
     
