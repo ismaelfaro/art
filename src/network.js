@@ -72,7 +72,7 @@ function printwords(){
 
   textFont('monospace', 64);
   fill(255, 255, 255)
-  text(poemWords[wordCounter],0,windowHeight/2,windowWidth-32)
+  text(poemWords[wordCounter],0,windowHeight/2,windowWidth)
   return poemWords[wordCounter]
 }
 
