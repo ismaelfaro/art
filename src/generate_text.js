@@ -1,50 +1,70 @@
-let lines, markov, data1, data2, x = 160, y = 240;
+let poemGenerate=[]
+let wordCounter=0
+let speed = 100
+let poemWords = []
+let originalPoems=''
+let startTime = Math.ceil((Date.now() / speed))
+let word =""
+let map = {}
+
 
 function preload() {
-
-  data1 = loadStrings('poems/all.en.txt');
-  data2 = loadStrings('poems/all.en.txt');
-  data3 = loadStrings('poems/all.en.txt');
-  data4 = loadStrings('poems/all.en.txt');
-  console.log(data1)
-  // data2 = loadStrings('poems.txt');
-  
+  poemGenerate = loadStrings('poems/picasso_in_botswana.en.AI.txt');
 }
 
 function setup() {
-
-  createCanvas(500, 500);
-  textFont('helvetica', 16);
-  textLeading(21);
-  textAlign(LEFT);
-
-  lines = ["click to (re)generate"];
-
-  // create a markov model w' n=4
-  markov = RiTa.markov(4);
-
-  // load text into the model
-  markov.addText(data1.join(' '));
-  markov.addText(data2.join(' '));
-  markov.addText(data3.join(' '));
-  markov.addText(data4.join(' '));
-    // markov.addText(data2.join(' '));
-
-  drawText();
+  originalPoems=poemGenerate[poemGenerate.length-1]
+  poemWords = originalPoems.split(" ")
+  cnv=createCanvas(windowWidth, windowHeight)
+  textAlign(CENTER, CENTER); textFont('monospace', 16); textStyle(BOLD)
+  strokeWeight(2); fill(100)
+  frameRate(30)
 }
 
-function drawText() {
-  background(50, 30, 40);
-  fill(220);
-  text(lines.join(' '), x, y, 420, 420);
-}
+function draw() {
+    wordCounter = (Math.ceil((Date.now() / speed)) - startTime) % poemGenerate.length
 
-function mouseClicked() {
-  lines = markov.generate(5);
-  x = y = 40;
-  drawText();
-}
-
+    background(0)
+    printPoems(wordCounter)
+    // printwords()
     
+}
+
+function printPoems(lastOne){
+  textFont('monospace', 24); textStyle(BOLD)
+  poemsToPrint = poemGenerate.slice(0, lastOne)
+ 
+  let opacitysteps =  poemWords.length / wordCounter
+  let opacity = opacitysteps
+  // console.log(opacity)
+  stroke(4)
+  strokeWeight(4);
+  poemsToPrint.forEach(element => {
+    fill(255, opacity )
+    text(element,0,32,windowWidth)
+    opacity +=  opacitysteps
+  });
+}
 
 
+
+function printwords(){
+
+  textFont('monospace', 64);
+  fill(255, 255, 255)
+  text(poemWords[wordCounter],0,windowHeight,windowWidth)
+  return poemWords[wordCounter]
+}
+
+
+function mousePressed() {
+  if (mouseX > 0 && mouseX < windowWidth && mouseY > 0 && mouseY < windowHeight) {
+    // let fs = fullscreen();
+    fullscreen(true)
+    background(0,0,0)
+  }
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}

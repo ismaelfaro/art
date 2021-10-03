@@ -93,27 +93,31 @@ function poem(number){
 
 
   for (let i = 0; i < number ; i++){
-    iniText += listOfWords[i] + " ";
+    iniText += listOfWords[i];
   }
 
-  originWord = iniText +listOfWords[number];
-  //textSize(7);
+  originWord = iniText+ " " +listOfWords[number];
+  textSize(7);
   originWordNextPositionInY = number * backTextSize + backTextSize;
   backgroundText(originWord, backTextSize, 0 , originWordNextPositionInY, 'white');
 
   
   aux = poemGenerate[number];
   backgroundText(aux.slice(originWord.length), backTextSize, textWidth(originWord)+ 3,  originWordNextPositionInY, "red");
+  
 }
 
 function printPoems(){
+  
   line = (Math.ceil((Date.now() / speed)) - startTime) % poemGenerate.length;
+
   poem(line);
+
   if (line === listOfWords.length + 1){
-    finish();
-    humanAndAIBox();
+    finish()
     noLoop();
   }
+
 }
 
 function mousePressed() {
@@ -125,41 +129,26 @@ function mousePressed() {
   }
 }
 
+
 function finish(){
   background(0,0,0);
   originWord = ''
   for (let i = 0; i < listOfWords.length ; i++){
+    
 
     originWord = originWord+ " " +listOfWords[i];
+    textSize(7);
     originWordNextPositionInY = i * backTextSize + backTextSize;
     backgroundText(originWord, backTextSize, 0 , originWordNextPositionInY, 'white');
 
+    
     aux = poemGenerate[i];
     backgroundText(aux.slice(originWord.length), backTextSize, textWidth(originWord)+ 3,  originWordNextPositionInY, "red");
-  } 
-}
+  }
 
-function humanAndAIBox(){
-  let xl = (windowWidth/4)*1 - 130 ;
-  let xr = (windowWidth/4)*3 - 130 ;
-  let yup = (windowHeight/4)*1 - 130 ;
-  let ybotton = (windowHeight/4)*3 - 130 ;
   
-  fill("black")
-  rect(xr, yup, 260, 260);
-  rect(xl, ybotton, 260, 260);
-  noStroke();
-  textAlign(CENTER, CENTER);
-  fill(0, 102, 153);
-  textSize(36)
-  text("Human", xr +130, yup+130);
-  text("AI", xl+130, ybotton+130);
-  noFill();
-  stroke('white');
-  strokeWeight(4);
-  rect(xr, yup, 260, 260);
-  rect(xl, ybotton, 260, 260);
-} 
+
+}
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
