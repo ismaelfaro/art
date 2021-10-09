@@ -10,6 +10,7 @@ def concatenate_files(folder, file):
     output_file = open(file,"a")
 
     for one_file  in file_list:
+        print(f"{folder}/{one_file}")
         open_file=open(f"{folder}/{one_file}", "r")
         lines = open_file.readlines()
         # str(lines).replace("\n","\n")
