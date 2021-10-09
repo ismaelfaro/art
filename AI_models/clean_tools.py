@@ -13,9 +13,10 @@ def concatenate_files(folder, file):
         print(f"{folder}/{one_file}")
         open_file=open(f"{folder}/{one_file}", "r")
         lines = open_file.readlines()
-        # str(lines).replace("\n","\n")
-        output_file.write(' '.join([line.strip() for line in lines]))
-        output_file.write('\n')
+        for line in lines:
+            if line != "\n":
+                output_file.write(line)
+                print(line)
         open_file.close()
 
 
@@ -26,12 +27,13 @@ def remove_EOF(filename):
     lines = f_source.readlines()
 
     for line in lines:
+        line = line.replace(" \n","\n") 
         if line == "\n":
             pass
         else: 
-            f_output.writelines(line)
+            f_output.writelines(line+"\n")
             print(line)
 
 if __name__ =="__main__":
     # remove_EOF("../poems/poems-Marcos_de_la_Fuente.txt")
-    concatenate_files("../poems/marcos", "outpur")
+    concatenate_files("../poems/marcos", "output2")
