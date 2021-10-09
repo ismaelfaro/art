@@ -100,15 +100,16 @@
 
   <!-- AI Section -->
   <div class="w3-container  w3-center" style="color: #000">  
-   
+
+
       <h3>Interact with the AI</h3><br>
       <p>Write a text and see what happens.</p>
+      <span id="spinner" class="spinner"></span>
       <div class="w3-center w3-margin-bottom">
         <textarea id="poeminput" style="width:350px; height:50px;"></textarea><br><br>
       </div>
       
       <button onclick="generatePoem()">Generate Poem</button>
-      <span id="spinner" class="spinner"></span>
       <div class="w3-row-padding w3-padding-16 w3-center" >
         <pre id="poemoutput" ></pre><br><br>
       </div>
