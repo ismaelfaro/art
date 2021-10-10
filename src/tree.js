@@ -56,8 +56,9 @@ function printwords(poemcount){
 
 function createLine(points, strokeLevel, opacity){
   noFill();
-  color = 150+(opacity)%poemsLength 
-  stroke(color,color,color,opacity % 400 );
+  color = 50+(opacity)%poemsLength 
+  // stroke(color,color,color,opacity % 400 );
+  stroke(color,color,color,color );
   strokeWeight(2)
   // strokeWeight(strokeLevel+(200-opacity)/15);
   beginShape();
