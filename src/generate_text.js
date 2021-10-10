@@ -7,6 +7,18 @@ let startTime = Math.ceil((Date.now() / speed))
 let word =""
 let map = {}
 
+let faceapi;
+let video;
+let detections;
+let lastDetections;
+
+const detection_options = {
+    withLandmarks: true,
+    withDescriptors: false,
+  MODEL_URLS: {
+    Mobilenetv1Model: 'https://raw.githubusercontent.com/ml5js/ml5-data-and-models/main/models/faceapi/ssd_mobilenetv1_model-weights_manifest.json',
+  },
+}
 
 function preload() {
   poemGenerate = loadStrings('poems/picasso_in_botswana.en.AI.txt');
@@ -18,15 +30,95 @@ function setup() {
   cnv=createCanvas(windowWidth, windowHeight)
   textAlign(CENTER, CENTER); textFont('monospace', 16); textStyle(BOLD)
   strokeWeight(2); fill(100)
-  frameRate(30)
+
+  video = createCapture(VIDEO);
+  video.size(width, height);
+  faceapi = ml5.faceApi(video, detection_options, modelReady)
+
+  video = createCapture(VIDEO);
+  video.size(width, height);
+  video.hide(); // Hide the video element, and just show the canvas
+
+  frameRate(9)
 }
 
 function draw() {
     wordCounter = (Math.ceil((Date.now() / speed)) - startTime) % poemGenerate.length
 
     background(0)
-    printPoems(wordCounter)
+    // printPoems(wordCounter)
     // printwords()
+    faceapi.detect(gotResults)
+}
+
+function modelReady() {
+    // console.log('ready!')
+    // console.log(faceapi)
+    faceapi.detect(gotResults)
+
+}
+
+function gotResults(err, result) {
+    if (err) {
+        console.log(err)
+        return
+    }
+    // console.log(result)
+    detections = result;
+    if (detections) {
+        if (detections.length > 0) {
+            // console.log(detections)
+            drawLandmarks(detections)
+            lastDetections = detections
+        }else{
+          drawLandmarks(lastDetections)
+        }
+
+    }else{
+      drawLandmarks(lastDetections)
+    }
+    
+}
+
+function drawLandmarks(detections){
+    noFill();
+    stroke(161, 95, 251)
+    strokeWeight(2)
+
+    for(let i = 0; i < detections.length; i++){
+        const mouth = detections[i].parts.mouth; 
+        const nose = detections[i].parts.nose;
+        const leftEye = detections[i].parts.leftEye;
+        const rightEye = detections[i].parts.rightEye;
+        const rightEyeBrow = detections[i].parts.rightEyeBrow;
+        const leftEyeBrow = detections[i].parts.leftEyeBrow;
+
+        drawPart(mouth, true);
+        drawPart(nose, false);
+        drawPart(leftEye, true);
+        drawPart(leftEyeBrow, false);
+        drawPart(rightEye, true);
+        drawPart(rightEyeBrow, false);
+
+    }
+
+}
+
+function drawPart(feature, closed){
+    stroke(100)
+    strokeWeight(4)
+    beginShape();
+    for(let i = 0; i < feature.length; i++){
+        const x = feature[i]._x
+        const y = feature[i]._y
+        vertex(x, y)
+    }
+    
+    if(closed === true){
+        endShape(CLOSE);
+    } else {
+        endShape();
+    }
     
 }
 
