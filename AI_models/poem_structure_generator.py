@@ -1,14 +1,14 @@
 import os
 import re
 
-f = open("../poems/inimitables.es.txt", "r")
+f = open("../poems/shredding_after_selling.es.txt", "r")
 
 wordsInLine = [len(x.split(" "))-1  for x in f if len(x.split(" "))-1!=0]
 
-f2 = open("../poems/inimitables.es.AI.txt", "r")
+f2 = open("../poems/shredding_after_selling.es.AI.txt", "r")
 
 # create a new file with the same content of f2 plus the simbol ~ where need jump to new line
-file = open("../poems/inimitables.es.AI-.txt", "w")
+file = open("../poems/shredding_after_selling.es.AI-.txt", "w")
 
 for line in f2:
     res = ' '.join([x for x in line.split(" ") if x != "^^"])
