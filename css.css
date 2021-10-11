@@ -88,7 +88,7 @@ background-size: cover;
 
 /* First image (Logo. Full height) */
 .bgimg-1 {
-background-image: url('/images/background_color.jpg');
+background-image: url('images/background_color.jpg');
 min-height: 100%;
 opacity: 100%;
 }
