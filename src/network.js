@@ -1,6 +1,6 @@
 let poemGenerate=[];
 let wordCounter=0;
-let speed = 700;
+let speed = 800;
 let poemWords;
 let startTime = Math.ceil((Date.now() / speed))
 let word =""
