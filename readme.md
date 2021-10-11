@@ -18,7 +18,7 @@ Thanks to Marcos de la Puente poet to impulse this collaboration to connect Art 
 ## visuals and poems
 
 - Vis 1  — Humano estructura, IA aleatoria	==>  picasso_in_botswana
-- Vis 2  — 	Poesía en el espejo		==>  Inimitables
-- Vis 3  —	El árbol de la IA			==> new_worlds
-- Vis 4  —	La red del poema			==> metareality
-- Vis 5  —	superposición			==> shredding_after_selling
+- Vis 2  — 	Poesía en el espejo		        ==>  Inimitables
+- Vis 3  —	El árbol de la IA		        ==> new_worlds
+- Vis 4  —	La red del poema		        ==> metareality
+- Vis 5  —	superposición			        ==> shredding_after_selling

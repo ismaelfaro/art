@@ -8,7 +8,9 @@ var poemGenerate=[];
 var wordCounter=0;
 var next = true;
 let mic;
-let speed = 300
+let speed = 400
+
+let textSize = 12
 
 let startTime = Math.ceil((Date.now() / speed))
 
@@ -29,26 +31,29 @@ function initCaptureDevice() {
 }
 
 function preload() {
-  poemGenerate = loadStrings('poems/picasso_in_botswana.en.AI.txt');
-  // poem = poemGenerate
+  poemGenerate = loadStrings('poems/'+get_poem_name()+'.txt');
+  console.log(poemGenerate)
+  // poemGenerate = loadStrings('poems/picasso_in_botswana.en.AI.txt');
+
   
 }
 
 function setup() {
-  poemGenerate=poemGenerate[poemGenerate.length-1]
+  
+  // poemGenerate=poemGenerate[poemGenerate.length-1].split("~").join(" \n")
+  poemGenerate=poemGenerate.join(" \n")
+  console.log(poemGenerate)
   cnv=createCanvas(windowWidth, windowHeight);
   initCaptureDevice(); 
   gfx = createGraphics(asciiart_width, asciiart_height);
   gfx.pixelDensity(1);
   myAsciiArt = new AsciiArt(this);
-  textAlign(CENTER, CENTER); textFont('monospace', 8); textStyle(BOLD);textWrap(WORD);
+  textAlign(CENTER, CENTER); textFont('monospace', textSize); textStyle(BOLD);textWrap(WORD);
   strokeWeight(2); fill(100);
   cnv.mousePressed(userStartAudio);
   mic = new p5.AudioIn();
   mic.start();
-
   frameRate(15);
-
 }
 
 
@@ -62,7 +67,7 @@ function draw() {
       
       gfx.filter(POSTERIZE, level+3);
       ascii_arr = myAsciiArt.convert(gfx);
-      textAlign(LEFT, CENTER); textFont('monospace', 12)
+      textAlign(CENTER, CENTER); textFont('monospace', textSize)
       fill(150);
       myAsciiArt.typeArray2d(ascii_arr, this);
       tint(255, (micLevel*20) / 256 * 150 + 20);
@@ -82,10 +87,10 @@ function printPoem(time){
 
   wordCounter = (Math.ceil((Date.now() / speed)) - startTime) % poemGenerate.length
 
-  textAlign(LEFT, CENTER); textFont('monospace', 32); textStyle(BOLD);
+  textAlign(CENTER, CENTER); textFont('monospace', textSize); textStyle(BOLD);
   thetext = poemGenerate.split(" ").splice(0,wordCounter).join(" ")
   fill(255, 255, 255);
-  text(thetext,32,64,windowWidth-32);
+  text(thetext,32,16,windowWidth-32);
   
 }
 

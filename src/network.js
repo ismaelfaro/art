@@ -1,6 +1,6 @@
 let poemGenerate=[];
 let wordCounter=0;
-let speed = 500;
+let speed = 700;
 let poemWords;
 let startTime = Math.ceil((Date.now() / speed))
 let word =""
@@ -8,7 +8,7 @@ let map = {}
 
 
 function preload() {
-  poemGenerate = loadStrings('poems/picasso_in_botswana.en.AI.txt');
+  poemGenerate = loadStrings('poems/'+get_poem_name()+'.AI.txt');
 }
 
 function generateMap(words){
@@ -61,7 +61,7 @@ function printNetwork(word){
     previousPoint.x = map[element].x
     previousPoint.y = map[element].y
    
-    text(element,map[element].x,map[element].y)
+    text(element.replace(',',''),map[element].x,map[element].y)
 
   });
 }
@@ -72,7 +72,7 @@ function printwords(){
 
   textFont('monospace', 64);
   fill(255, 255, 255)
-  text(poemWords[wordCounter],0,windowHeight/2,windowWidth)
+  text(poemWords[wordCounter].replace(",",""),0,windowHeight/2,windowWidth)
   return poemWords[wordCounter]
 }
 

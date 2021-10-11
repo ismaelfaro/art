@@ -12,17 +12,14 @@ let originWord = "";
 const originWordSize = 8;
 let originWordNextPositionInY = originWordSize + 1;
 
-
 let speed = 300
 
 let startTime = Math.ceil((Date.now() / speed))
 
-
 function preload() {
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
-  originalPoem = loadStrings('poems/'+urlParams.get('poem')+'.txt');
-  poemGenerate = loadStrings('poems/'+urlParams.get('poem')+'.AI.txt');
+  const poemName  = get_poem_name();
+  originalPoem = loadStrings('poems/'+ poemName +'.txt');
+  poemGenerate = loadStrings('poems/'+ poemName +'.AI.txt');
 }
 
 function setup() {
@@ -42,21 +39,11 @@ function setup() {
       }
     }
   }
-  
 }
 
-
-function draw() {
- 
-
+function draw() { 
   printPoems()
-  
 }
-
-function mouseClicked() {
- 
-}
-
    
 function center_box(x,y, texto){
   fill("black")
@@ -70,10 +57,7 @@ function center_box(x,y, texto){
   stroke('white');
   strokeWeight(4);
   rect(x, y, 260, 260);
-
-
 }
-
 
 function backgroundText(originWord, originWordSize , x, y, font_color){
   noStroke();
@@ -81,9 +65,7 @@ function backgroundText(originWord, originWordSize , x, y, font_color){
   fill(font_color);
   textSize(originWordSize)
   text(originWord, x, y);
-
 }
-
 
 function poem(number){
  
@@ -92,7 +74,6 @@ function poem(number){
   word = listOfWords[number]
   center_box(windowWidth/2-130,windowHeight/2-130,word) ;
   iniText = ""
-
 
   for (let i = 0; i < number ; i++){
     iniText += listOfWords[i];
@@ -103,7 +84,6 @@ function poem(number){
   originWordNextPositionInY = number * backTextSize + backTextSize;
   backgroundText(originWord, backTextSize, 0 , originWordNextPositionInY, 'white');
 
-  
   aux = poemGenerate[number];
   backgroundText(aux.slice(originWord.length), backTextSize, textWidth(originWord)+ 3,  originWordNextPositionInY, "red");
   
@@ -137,18 +117,14 @@ function finish(){
   originWord = ''
   for (let i = 0; i < listOfWords.length ; i++){
     
-
     originWord = originWord+ " " +listOfWords[i];
     textSize(7);
     originWordNextPositionInY = i * backTextSize + backTextSize;
     backgroundText(originWord, backTextSize, 0 , originWordNextPositionInY, 'white');
 
-    
     aux = poemGenerate[i];
     backgroundText(aux.slice(originWord.length), backTextSize, textWidth(originWord)+ 3,  originWordNextPositionInY, "red");
   }
-
-  
 
 }
 

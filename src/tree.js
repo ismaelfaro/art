@@ -5,12 +5,14 @@ let poemsBranch = []
 let poemsLength = 0
 let poemWords = 0
 let movement =0 
-let speed = 300
+let speed = 700
 let startTime = Math.ceil((Date.now() / speed))
 let sin = []
+let shift = 0.9
+let treeHight = 3
 
 function preload() {
-  poemGenerate = loadStrings('poems/picasso_in_botswana.en.AI.txt');
+  poemGenerate = loadStrings('poems/'+get_poem_name()+'.AI.txt');
 }
 
 function setup() {
@@ -101,7 +103,7 @@ function calculateDistance(poems){
   poemsWeights.forEach(line =>{
     
     for(word in line){
-      line[word]=line[word] - original[word]
+      line[word]=line[word] - original[word]*shift
     }
     poemdistances.push(line)
   })
@@ -141,7 +143,7 @@ function drawTree(count){
    // TODO: all the lines
   sub.forEach((distances, index) =>{
     // branchPoints = generateBranch(distances, xpos, ypos, 5, 3.5)
-    branchPoints = generateBranch(distances, xpos, ypos, 0.02, 3.6,1 ) // V2
+    branchPoints = generateBranch(distances, xpos, ypos, 0.02, treeHight, 1 ) // V2
     createLine(branchPoints,2*(250-index)/100, index) // V1
     // createCurve(branchPoints,1)
     

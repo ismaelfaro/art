@@ -1,6 +1,6 @@
 let poemGenerate=[]
 let wordCounter=0
-let speed = 500
+let speed = 700
 let poemWords = []
 let originalPoems=''
 let startTime = Math.ceil((Date.now() / speed))
@@ -11,6 +11,7 @@ let faceapi
 let video
 let detections
 let lastDetections = {}
+let textSize = 13
 
 const detection_options = {
     withLandmarks: true,
@@ -21,14 +22,14 @@ const detection_options = {
 }
 
 function preload() {
-  poemGenerate = loadStrings('poems/picasso_in_botswana.en.AI.txt');
+  poemGenerate = loadStrings('poems/'+get_poem_name()+'.AI.txt');
 }
 
 function setup() {
   originalPoems=poemGenerate[poemGenerate.length-1]
   poemWords = originalPoems.split(" ")
   cnv=createCanvas(windowWidth, windowHeight)
-  textAlign(CENTER, CENTER); textFont('monospace', 16); textStyle(BOLD)
+  textAlign(CENTER, CENTER); textFont('monospace', textSize); textStyle(BOLD)
   strokeWeight(2); fill(100)
 
   video = createCapture(VIDEO);
@@ -127,19 +128,19 @@ function drawPart(feature, closed){
 }
 
 function printPoems(lastOne){
-  textFont('monospace', 24); textStyle(BOLD)
+  textFont('monospace', textSize); textStyle(BOLD)
   poemsToPrint = poemGenerate[lastOne]
 
   fill(lastOne+100)
   stroke(0)
   strokeWeight(4);
   
-  text(poemsToPrint,0,32,windowWidth)
+  text(poemsToPrint.split("~").join("\n"),0,32,windowWidth)
 
 }
 
 function printPoems_old(lastOne){
-  textFont('monospace', 24); textStyle(BOLD)
+  textFont('monospace', textSize); textStyle(BOLD)
   poemsToPrint = poemGenerate.slice(0, lastOne)
  
   let opacitysteps =  poemWords.length / wordCounter
