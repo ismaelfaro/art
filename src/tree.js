@@ -49,15 +49,16 @@ function printwords(poemcount){
   strokeWeight(2)
   stroke(0,0,0)
   fill(255, 255, 255)
-  text(poemWords[poemcount],0,windowHeight/2,windowWidth)
+  text(poemWords[poemcount].replace(",","").replace(".",""),0,windowHeight/2,windowWidth)
   return poemWords[poemcount]
 }
 
 
 function createLine(points, strokeLevel, opacity){
   noFill();
-  color = 150+(opacity)%poemsLength 
-  stroke(color,color,color,opacity % 400 );
+  color = 50+(opacity)%poemsLength 
+  // stroke(color,color,color,opacity % 400 );
+  stroke(color,color,color,color );
   strokeWeight(2)
   // strokeWeight(strokeLevel+(200-opacity)/15);
   beginShape();

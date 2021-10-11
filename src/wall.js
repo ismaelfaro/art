@@ -65,7 +65,7 @@ function center_box(x,y, texto){
   textAlign(CENTER, CENTER);
   fill(0, 102, 153);
   textSize(36)
-  text(texto, x+130, y+130);
+  text(texto.replace(",","").replace(".",""), x+130, y+130);
   noFill();
   stroke('white');
   strokeWeight(4);
