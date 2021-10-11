@@ -46,7 +46,7 @@ function draw() {
     wordCounter = (Math.ceil((Date.now() / speed)) - startTime) % poemGenerate.length
 
     background(0)
-    // printPoems(wordCounter)
+    printPoems(wordCounter)
     // printwords()
     faceapi.detect(gotResults)
 }
