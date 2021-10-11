@@ -9,7 +9,7 @@ let speed = 700
 let startTime = Math.ceil((Date.now() / speed))
 let sin = []
 let shift = 0.9
-let treeHight = 3
+let treeHight = 4
 
 function preload() {
   poemGenerate = loadStrings('poems/'+get_poem_name()+'.AI.txt');
@@ -60,7 +60,7 @@ function createLine(points, strokeLevel, opacity){
   noFill();
   color = 50+(opacity)%poemsLength 
   // stroke(color,color,color,opacity % 400 );
-  stroke(color,color,color,color );
+  stroke(color,color,color,color+100 );
   strokeWeight(2)
   // strokeWeight(strokeLevel+(200-opacity)/15);
   beginShape();
