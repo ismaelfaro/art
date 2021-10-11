@@ -49,7 +49,7 @@ function printwords(poemcount){
   strokeWeight(2)
   stroke(0,0,0)
   fill(255, 255, 255)
-  text(poemWords[poemcount],0,windowHeight/2,windowWidth)
+  text(poemWords[poemcount].replace(",","").replace(".",""),0,windowHeight/2,windowWidth)
   return poemWords[poemcount]
 }
 

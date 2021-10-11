@@ -1,16 +1,16 @@
 let poemGenerate=[]
 let wordCounter=0
-let speed = 100
+let speed = 500
 let poemWords = []
 let originalPoems=''
 let startTime = Math.ceil((Date.now() / speed))
 let word =""
 let map = {}
-
-let faceapi;
-let video;
-let detections;
-let lastDetections;
+let size = 2
+let faceapi
+let video
+let detections
+let lastDetections = {}
 
 const detection_options = {
     withLandmarks: true,
@@ -45,9 +45,9 @@ function setup() {
 function draw() {
     wordCounter = (Math.ceil((Date.now() / speed)) - startTime) % poemGenerate.length
 
-    background(0)
+    // background(0)
     printPoems(wordCounter)
-    // printwords()
+    
     faceapi.detect(gotResults)
 }
 
@@ -64,16 +64,21 @@ function gotResults(err, result) {
         return
     }
     // console.log(result)
+    if(lastDetections != {}){
+      stroke(0)
+      drawLandmarks(lastDetections)
+      stroke(255)
+    }
+
+
     detections = result;
     if (detections) {
         if (detections.length > 0) {
-            // console.log(detections)
             drawLandmarks(detections)
             lastDetections = detections
         }else{
           drawLandmarks(lastDetections)
         }
-
     }else{
       drawLandmarks(lastDetections)
     }
@@ -81,9 +86,6 @@ function gotResults(err, result) {
 }
 
 function drawLandmarks(detections){
-    noFill();
-    stroke(161, 95, 251)
-    strokeWeight(2)
 
     for(let i = 0; i < detections.length; i++){
         const mouth = detections[i].parts.mouth; 
@@ -105,12 +107,14 @@ function drawLandmarks(detections){
 }
 
 function drawPart(feature, closed){
-    stroke(100)
-    strokeWeight(4)
+
+    strokeWeight(10)
+    noFill();
     beginShape();
+
     for(let i = 0; i < feature.length; i++){
-        const x = feature[i]._x
-        const y = feature[i]._y
+        const x = feature[i]._x * size - windowWidth/2
+        const y = feature[i]._y * size - windowHeight/3
         vertex(x, y)
     }
     
@@ -124,11 +128,22 @@ function drawPart(feature, closed){
 
 function printPoems(lastOne){
   textFont('monospace', 24); textStyle(BOLD)
+  poemsToPrint = poemGenerate[lastOne]
+
+  fill(lastOne+100)
+  stroke(0)
+  strokeWeight(4);
+  
+  text(poemsToPrint,0,32,windowWidth)
+
+}
+
+function printPoems_old(lastOne){
+  textFont('monospace', 24); textStyle(BOLD)
   poemsToPrint = poemGenerate.slice(0, lastOne)
  
   let opacitysteps =  poemWords.length / wordCounter
   let opacity = opacitysteps
-  // console.log(opacity)
   stroke(4)
   strokeWeight(4);
   poemsToPrint.forEach(element => {
@@ -137,7 +152,6 @@ function printPoems(lastOne){
     opacity +=  opacitysteps
   });
 }
-
 
 
 function printwords(){
