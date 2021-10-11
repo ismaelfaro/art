@@ -33,7 +33,7 @@ function draw() {
 
   tint(255, 199);
   image(QRimg,windowWidth/2-200, windowHeight /3);
-  text("Poesia + AI = ART",windowWidth/2, windowHeight/4)
+  text("Poesia + IA = ARTE",windowWidth/2, windowHeight/4)
 
 
 }
