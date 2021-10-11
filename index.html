@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -12,6 +13,13 @@
       body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
       .w3-bar-block .w3-bar-item {padding:20px}
     </style>
+    <script >
+      var browserLanguage = navigator.language
+      if (browserLanguage.split("-")[0] == "es"){
+        window.location.replace("index.es.html");
+      }
+
+    </script>
     <script src="js/p5.min.js"></script>
     <script src="js/p5.sound.min.js"></script>
     <script src="js/p5.speech.js"></script>
@@ -21,10 +29,8 @@
     <title>Poems + AI = POETAI</title>
 
     <style>
-      body {padding: 0px;
-            margin:0px;
-            color: #fff;
-            background-color:#fff;} 
+
+
     </style>
   </head>
 
@@ -44,8 +50,8 @@
   <!-- Top menu -->
   <div class="w3-top">
     <div class="w3-white w3-xlarge" style="max-width:1200px;margin:auto">
-      <div class="w3-button w3-padding-16 w3-left" onclick="w3_open()">☰</div>
-      <div class="w3-center w3-padding-16">Poems + AI = POETAI </div>
+      <div class="w3-button w3-padding w3-left" onclick="w3_open()">☰</div>
+      <div class="w3-center w3-padding  ">Poems + AI = POETAI </div>
     </div>
   </div>
 
@@ -60,7 +66,7 @@
     <!-- First Photo Grid-->
     <div class="w3-row-padding  w3-center" id="experimentation">
       <div class="w3-col" style="width:20%">
-        <a href="vis1.html">
+        <a href="vis1.html?poem=picasso_in_botswana.en">
         <img src="images/vis1_image.jpg" alt="Structured human, random AI" style="width:100%"></a>
         <h3>Structured Human Random AI</h3>
         <p>The main program feeds the AI ​​with words from the poem and the AI ​​predicts the next words. </p>
@@ -70,7 +76,7 @@
       <div class="w3-col" style="width:20%">
         <a href="vis2.html">
         <img src="images/vis2_image.jpg" alt="Poetry on the mirror of AI" style="width:100%"></a>
-        <h3>Poetry on the mirror of AI</h3>
+        <h3>Poetry on the mirror</h3>
         <p>In the foreground, the poem appears at the rhythm of the poet's reading and the AI ​​interacts with the image captured by the device's camera.</p>
       </div>
       <div class="w3-col" style="width:20%">
@@ -89,35 +95,41 @@
       </div>
       <div class="w3-col" style="width:20%">
         <a href="vis5.html">
-        <img src="images/vis4_image.jpg" alt="vis4" style="width:100%"></a>
+        <img src="images/vis5_image.jpg" alt="vis4" style="width:100%"></a>
         <h3>Superposition</h3>
         <br>
-        <p></p>
+        <p>This experiement looking for represent the superpesiotion of the ideas between human and his digital tween, and how the final concept preserve the value to transmit.</p>
       </div>
     </div>
   
-  <hr id="AI">
+  <!-- <hr id="AI"> -->
 
   <!-- AI Section -->
-  <div class="w3-container  w3-center" style="color: #000">  
+  <div class="digitaltwinZone">
+
+    <img src= "/images/background_color.jpg" class="digitaltwinback">
+
+    <div class="digitaltwin  w3-container  w3-center">  
 
 
       <h3>Interact with the AI</h3><br>
-      <p>Write a text and see what happens.</p>
+      <p>Write a title and the digital twin poet will generate a poem.</p>
       <span id="spinner" class="spinner"></span>
       <div class="w3-center w3-margin-bottom">
-        <textarea id="poeminput" style="width:350px; height:50px;"></textarea><br><br>
+        <textarea id="poeminput" style="width:350px; height:22px;"></textarea><br><br>
       </div>
       
       <button onclick="generatePoem()">Generate Poem</button>
       <div class="w3-row-padding w3-padding-16 w3-center" >
-        <pre id="poemoutput" ></pre><br><br>
+        <pre id="poemoutput" class="digitaltwinpoem" ></pre><br><br>
       </div>
         
   </div>
+  
+  </div>
+  
 
-
-  <hr id="about">
+  <!-- <hr id="about"> -->
 
   <!-- About Section -->
     <div class="w3-container w3-padding-32 w3-center" style="color: #000">  
@@ -140,19 +152,19 @@
    
       
       <div class="w3-half w3-margin-bottom">
-        <img src="/images/Mariel_fotoperfil.jpg" alt="Mariel" style="width:50%">
+        <img src="/images/Mariel_fotoperfilBN.jpg" alt="Mariel" style="width:50%">
         
         <h3>Mariel Martinez</h3>
         <p class="w3-opacity">Coding developer</p>
-        <p>I am curious in all forms of art. Now I experiment with new technological tools to enrich the creation of the poet.</p>
+        <p>Expirementing with AI to enrich the creation of the poet.</p>
         
       </div>
       <div class="w3-half w3-margin-bottom">
-        <img src="/w3images/team2.jpg" alt="Ismael" style="width:50%">
+        <img src="/images/IsmaelFaro.jpg" alt="Ismael" style="width:50%">
         
         <h3>Ismael Faro</h3>
         <p class="w3-opacity">AI Advisor</p>
-        <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+        <p>Distinguished Engineer at IBM.</p>
         
       </div>
     </div>
@@ -160,7 +172,7 @@
   
 
   <!-- Footer -->
-<footer id="media" class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
+<footer id="media" class="bgimg-1 w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
   <a href="#chromeAlert" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
   <div class="w3-xlarge w3-section">
     <a href="https://www.facebook.com/marcosmaniquies" target="_blank"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>

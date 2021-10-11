@@ -19,8 +19,10 @@ let startTime = Math.ceil((Date.now() / speed))
 
 
 function preload() {
-  originalPoem = loadStrings('poems/picasso_in_botswana.en.txt');
-  poemGenerate = loadStrings('poems/picasso_in_botswana.en.AI.txt');
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  originalPoem = loadStrings('poems/'+urlParams.get('poem')+'.txt');
+  poemGenerate = loadStrings('poems/'+urlParams.get('poem')+'.AI.txt');
 }
 
 function setup() {

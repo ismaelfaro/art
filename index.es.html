@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,7 +18,7 @@
     <script src="js/p5.asciiart.min.js"></script>
     <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
     
-    <title>Poems + AI = POETAI</title>
+    <title>Poemas + IA = PoetaIA</title>
 
     <style>
       body {padding: 0px;
@@ -33,10 +33,10 @@
 
     <!-- Sidebar (hidden by default) -->
   <nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left" style="display:none;z-index:2;width:40%;min-width:300px;color: #000;" id="mySidebar">
-    <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button">Close Menu</a>
-    <a href="#experimentation" onclick="w3_close()" class="w3-bar-item w3-button">Experimentation</a>
-    <a href="#AI" onclick="w3_close()" class="w3-bar-item w3-button">Try an AI</a>
-    <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">About</a>
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button">Cerrar Menu</a>
+    <a href="#experimentation" onclick="w3_close()" class="w3-bar-item w3-button">Experimentación</a>
+    <a href="#AI" onclick="w3_close()" class="w3-bar-item w3-button">Prueba la IA</a>
+    <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">Quienes somos</a>
     <a href="#media" onclick="w3_close()" class="w3-bar-item w3-button">Media</a>
   </nav>
  
@@ -45,13 +45,13 @@
   <div class="w3-top">
     <div class="w3-white w3-xlarge" style="max-width:1200px;margin:auto">
       <div class="w3-button w3-padding-16 w3-left" onclick="w3_open()">☰</div>
-      <div class="w3-center w3-padding-16">Poems + AI = POETAI </div>
+      <div class="w3-center w3-padding-16">Poemas + IA= POETA_IA </div>
     </div>
   </div>
 
   <div id="chromeAlert" class="alert">
     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-    <strong>Notice.</strong> To have a better experience you should use a <a target="_blank" href="https://www.google.com/chrome">Chrome browser</a>.
+    <strong>Aviso.</strong> Para una mejor experiencia utiliza <a target="_blank" href="https://www.google.com/chrome">Chrome browser</a>.
   </div>
     <!-- !PAGE CONTENT! -->
 
@@ -60,107 +60,107 @@
     <!-- First Photo Grid-->
     <div class="w3-row-padding  w3-center" id="experimentation">
       <div class="w3-col" style="width:20%">
-        <a href="vis1.html">
+        <a href="vis1.html?poem=picasso_in_botswana.es">
         <img src="images/vis1_image.jpg" alt="Structured human, random AI" style="width:100%"></a>
-        <h3>Structured Human Random AI</h3>
-        <p>The main program feeds the AI ​​with words from the poem and the AI ​​predicts the next words. </p>
-        <!--<p>El programa principal alimenta la IA con palabras del poema y la IA predice las siguientes palabras. En este projecto, se va incrementando una a una las palabras que se le pasan a la IA y ella completa el resto del poema. El numero de poemas que se  generaran, es el numero de palabras que tiene el poema. </p>
-        -->
+        <h3>Humano estructura, IA aleatoria</h3>
+        <p>El programa principal alimenta a la IA con palabras del poema y la IA predice las siguientes palabras. </p>
         </div>
       <div class="w3-col" style="width:20%">
         <a href="vis2.html">
         <img src="images/vis2_image.jpg" alt="Poetry on the mirror of AI" style="width:100%"></a>
-        <h3>Poetry on the mirror of AI</h3>
-        <p>In the foreground, the poem appears at the rhythm of the poet's reading and the AI ​​interacts with the image captured by the device's camera.</p>
+        <h3>Poesía en el espejo</h3>
+        <br>
+        <p>En primer plano, el poema aparece al ritmo de la lectura del poeta y la IA interactúa con la imagen captada por la cámara del dispositivo.</p>
       </div>
       <div class="w3-col" style="width:20%">
         <a href="vis3.html">
         <img src="images/vis3_image.jpg" alt="The AI tree" style="width:100%"></a>
-        <h3>The AI tree</h3>
+        <h3>El árbol de la IA</h3>
         <br>
-        <p> Each branch of the tree represents a weight of each word, which is given according to the interpretation of the AI.</p>
+        <p> Cada rama del árbol es generado por el peso que cada palabra tiene en el poema, el peso es dado según la interpretacion de la IA.</p>
       </div>
       <div class="w3-col" style="width:20%">
         <a href="vis4.html">
         <img src="images/vis4_image.jpg" alt="vis4" style="width:100%"></a>
-        <h3>NetPoem</h3>
+        <h3>La red del poema</h3>
         <br>
-        <p>Exploring how AI connect the Poem Words . </p>
+        <p>Explorando como la IA encadena las palabras del poema. </p>
       </div>
       <div class="w3-col" style="width:20%">
         <a href="vis5.html">
-        <img src="images/vis4_image.jpg" alt="vis4" style="width:100%"></a>
-        <h3>Superposition</h3>
+        <img src="images/vis5_image.jpg" alt="vis4" style="width:100%"></a>
+        <h3>superposición</h3>
         <br>
-        <p></p>
+        <p>Este experimento busca representar la superpensación de las ideas entre el ser humano y su interpolación digital, y cómo el concepto final preserva el valor a transmitir.</p>
       </div>
     </div>
   
-  <hr id="AI">
+  <!-- <hr id="AI"> -->
 
   <!-- AI Section -->
-  <div class="w3-container  w3-center" style="color: #000">  
+  <div class="digitaltwinZone">
+    <img src= "/images/background_color.jpg" class="digitaltwinback">
 
+  <div class="digitaltwin w3-container  w3-center">  
 
-      <h3>Interact with the AI</h3><br>
-      <p>Write a text and see what happens.</p>
-      <span id="spinner" class="spinner"></span>
-      <div class="w3-center w3-margin-bottom">
-        <textarea id="poeminput" style="width:350px; height:50px;"></textarea><br><br>
-      </div>
+    <!-- <img class="w3-image" src="images/background_color.jpg" alt="customPattern" width="1600" height="800"> -->
+    
+    <h3>Interacciona con el Digital twin poet</h3><br>
+    <p>Escribe un titulo y el digital twin poet generará un poema</p>
+    <span id="spinner" class="spinner"></span>
+    <div class="w3-center w3-margin-bottom">
+      <textarea id="poeminput" style="width:350px; height:22px;"></textarea><br><br>
+    </div>
       
-      <button onclick="generatePoem()">Generate Poem</button>
-      <div class="w3-row-padding w3-padding-16 w3-center" >
-        <pre id="poemoutput" ></pre><br><br>
-      </div>
+    <button onclick="generatePoem()">Generar poema</button>
+    <div class="w3-row-padding w3-padding-16 w3-center" >
+      <pre id="poemoutput"  class="digitaltwinpoem" ></pre><br><br>
+    </div>
         
   </div>
+</div>
 
 
-  <hr id="about">
+  <!-- <hr id="about"> -->
 
   <!-- About Section -->
     <div class="w3-container w3-padding-32 w3-center" style="color: #000">  
-      <h3>The poet</h3><br>
+      <h3>El Poeta</h3><br>
       <img src="images/Marcos_enlaRia.jpg" alt="Me" class="w3-image" style="display:block;margin:auto" width="800" height="533">
       <div class="w3-padding-32">
         <h4><b>Marcos de la Fuente</b></h4>
-        <h6><i>Building my digital twin</i></h6>
-        <p>The digital version of human thinking and feeling (the digital twin) is
-          fed with all the work of the poet Marcos de la Fuente, also includ texts from
-          authors who have influenced his writing. Thus, the machine (the AI) learns and creates
-          this digital twin that, thanks to growing graphic technology, can interpret and
-          generate the visual part of the poetic work, either in real time from the
-          live work of the poet - recognizing his voice or his image -, or from the
-          Proposals for words and verses written by the people who interact in the
-          associated website, and that will be completed with the poetic style defined by the network
-          neuronal of the poet. A poetic digital self that will evolve in successive
-          Poetry proposals 3.1, 3.2 and etc. </p>
+        <h6><i>Construyendo mi digital twin poet</i></h6>
+        <p>La versión digital del pensamiento y el sentir del humano (el digital twin poet) está
+            alimentada con toda la obra del poeta Marcos de la Fuente, además textos de
+            autores que han influenciado su escritura. Así, la maquina (la IA) aprende y crea
+            este digital twin que, gracias a la tecnología gráfica creciente, puede interpretar y
+            generar la parte visual de la obra poética, ya sea en tiempo real desde la propia
+            obra en vivo del poeta – reconociendo su voz o su imagen-, o desde las
+            propuestas de palabras y versos escritos por las personas que interactuen en la
+            web asociada, y que serán completadas con el estilo poético definido por la red
+            neuronal del poeta. Un yo poético digital que irá evolucionando en sucesivas
+            propuestas de Poesía 3.1, 3.2 y etc. </p>
       </div>
    
       
       <div class="w3-half w3-margin-bottom">
-        <img src="/images/Mariel_fotoperfil.jpg" alt="Mariel" style="width:50%">
-        
+        <img src="/images/Mariel_fotoperfilBN.jpg" alt="Mariel" style="width:50%">
         <h3>Mariel Martinez</h3>
-        <p class="w3-opacity">Coding developer</p>
-        <p>I am curious in all forms of art. Now I experiment with new technological tools to enrich the creation of the poet.</p>
-        
+        <p class="w3-opacity">Programadora</p>
+        <p>Expirementando con AI para enriquecer la creación del poeta.</p>
       </div>
       <div class="w3-half w3-margin-bottom">
-        <img src="/w3images/team2.jpg" alt="Ismael" style="width:50%">
-        
+        <img src="/images/IsmaelFaro.jpg" alt="Ismael" style="width:50%">
         <h3>Ismael Faro</h3>
-        <p class="w3-opacity">AI Advisor</p>
-        <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-        
+        <p class="w3-opacity">Asesor en IA</p>
+        <p>Distinguished Engineer at IBM.</p>
       </div>
     </div>
   </div>
   
 
   <!-- Footer -->
-<footer id="media" class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
+<footer id="media" class="bgimg-1 w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
   <a href="#chromeAlert" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
   <div class="w3-xlarge w3-section">
     <a href="https://www.facebook.com/marcosmaniquies" target="_blank"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>

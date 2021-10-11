@@ -72,3 +72,51 @@
   .closebtn:hover {
     color: black;
   }
+
+body {padding: 0px;
+    margin:0px;
+    color: #fff;
+    background-color:#fff;} 
+
+/* Create a Parallax Effect */
+.bgimg-1{
+background-attachment: fixed;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}      
+
+/* First image (Logo. Full height) */
+.bgimg-1 {
+background-image: url('/images/background_color.jpg');
+min-height: 100%;
+opacity: 100%;
+}
+
+.digitaltwin{
+position: relative; 
+color: #000000;
+opacity: 100%;
+
+}
+
+.digitaltwinZone{
+overflow: hidden;
+position: relative;
+}
+
+.digitaltwinback {    
+opacity: 0.2;
+position: absolute;
+left: 0;
+top: 0;
+}
+
+.digitaltwinpoem{    
+padding: 32px;
+ background-color: #fff;
+width: 600px;
+display: block;
+margin-left: auto;
+margin-right: auto;
+}
