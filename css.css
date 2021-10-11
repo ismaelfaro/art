@@ -9,7 +9,7 @@
     margin: auto;
     position: relative;
     left: -30px;
-    color: rgb(139, 139, 139);
+    color: rgb(255, 255, 255);
     transform: translateY(30px);
     box-sizing: border-box;
     animation: animloader 2s ease infinite;
@@ -23,7 +23,7 @@
     box-shadow: 0 30px, 0 -30px;
     border-radius: 4px;
     background: currentColor;
-    color: rgb(85, 85, 85);
+    color: rgb(255, 255, 255);
     position: absolute;
     left: 30px;
     top: 0;
@@ -37,7 +37,7 @@
   @keyframes animloader {
     0% {
       top: 0;
-      color: rgb(44, 44, 44);
+      color: rgb(255, 255, 255);
     }
     50% {
       top: 30px;
@@ -45,7 +45,7 @@
     }
     100% {
       top: 0;
-      color: rgb(66, 66, 66);
+      color: rgb(255, 255, 255);
     }
   }
       
@@ -113,10 +113,20 @@ top: 0;
 }
 
 .digitaltwinpoem{    
+  border-radius: 16px;
 padding: 32px;
  background-color: #fff;
 width: 600px;
 display: block;
 margin-left: auto;
 margin-right: auto;
+}
+
+pre {
+  overflow-x: auto;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
 }
