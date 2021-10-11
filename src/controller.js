@@ -15,7 +15,7 @@ function keyTyped() {
         window.location.href="vis4.html?poem=metareality.es"
         break;
     case "5":
-        window.location.href="vis5.html?poem=shredding_after_selling.es"
+        window.location.href="vis5.html?poem=burn_after_selling.es"
         break;
     case "0":
         window.location.href="pause.html"
