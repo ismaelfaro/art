@@ -95,7 +95,10 @@ function printPoems(){
 
   poem(line);
 
-  if (line === listOfWords.length + 1){
+  console.log(line)
+  console.log(listOfWords.length )
+
+  if (line === listOfWords.length - 1){
     finish()
     noLoop();
   }

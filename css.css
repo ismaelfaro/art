@@ -135,3 +135,16 @@ button {
   border-radius: 4px;
   padding: 8px 16px 8px 16px;
 }
+
+.photogrid1 {
+  float:left;
+  padding: 16px;
+  width: 230px;
+}
+
+@media screen and (max-width: 600px) {
+  .photogrid1 {
+    width:100%;
+    float:none;
+  }
+}

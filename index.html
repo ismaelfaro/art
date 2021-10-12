@@ -28,10 +28,6 @@
     
     <title>Poems + AI = POETAI</title>
 
-    <style>
-
-
-    </style>
   </head>
 
   <body>
@@ -51,7 +47,7 @@
   <div class="w3-top">
     <div class="w3-white w3-xlarge" style="max-width:1200px;margin:auto">
       <div class="w3-button w3-padding w3-left" onclick="w3_open()">☰</div>
-      <div class="w3-center w3-padding  ">Poems + AI = POET(AI) </div>
+      <div class="w3-center w3-padding  "> Poetry + AI = ART </div>
     </div>
   </div>
 
@@ -65,35 +61,33 @@
 
     <!-- First Photo Grid-->
     <div class="w3-row-padding  w3-center" id="experimentation">
-      <div class="w3-col" style="width:20%">
+      <div class=" photogrid1" >
         <a href="vis1.html?poem=picasso_in_botswana.en">
         <img src="images/vis1_image.jpg" alt="Structured human, random AI" style="width:100%"></a>
         <h3>Structured Human Random AI</h3>
         <p>The main program feeds the AI ​​with words from the poem and the AI ​​predicts the next words. </p>
-        <!--<p>El programa principal alimenta la IA con palabras del poema y la IA predice las siguientes palabras. En este projecto, se va incrementando una a una las palabras que se le pasan a la IA y ella completa el resto del poema. El numero de poemas que se  generaran, es el numero de palabras que tiene el poema. </p>
-        -->
-        </div>
-      <div class="w3-col" style="width:20%">
+      </div>
+      <div class="photogrid1"  >
         <a href="vis2.html?poem=inimitables.en">
         <img src="images/vis2_image.jpg" alt="Poetry on the mirror of AI" style="width:100%"></a>
         <h3>Poetry on the mirror</h3>
         <p>In the foreground, the poem appears at the rhythm of the poet's reading and the AI ​​interacts with the image captured by the device's camera.</p>
       </div>
-      <div class="w3-col" style="width:20%">
+      <div class="  photogrid1" >
         <a href="vis3.html?poem=new_worlds.en">
         <img src="images/vis3_image.jpg" alt="The AI tree" style="width:100%"></a>
         <h3>The AI tree</h3>
         <br>
         <p> Each branch of the tree represents a weight of each word, which is given according to the interpretation of the AI.</p>
       </div>
-      <div class="w3-col" style="width:20%">
+      <div class=" photogrid1" >
         <a href="vis4.html?poem=metareality.en">
         <img src="images/vis4_image.jpg" alt="vis4" style="width:100%"></a>
         <h3>NetPoem</h3>
         <br>
         <p>Exploring how AI connect the Poem Words . </p>
       </div>
-      <div class="w3-col" style="width:20%">
+      <div class="  photogrid1"  >
         <a href="vis5.html?poem=burn_after_selling.en">
         <img src="images/vis5_image.jpg" alt="vis4" style="width:100%"></a>
         <h3>Superposition</h3>
@@ -109,9 +103,7 @@
 
     <img src= "images/background_color.jpg" class="digitaltwinback">
 
-    <div class="digitaltwin  w3-container  w3-center">  
-
-
+    <div class="digitaltwin  w3-container  w3-center" id="AI">  
       <h3>Interact with the AI</h3><br>
       <p>Write a title and the digital twin poet will generate a poem.</p>
       <span id="spinner" class="spinner"></span>
@@ -123,16 +115,17 @@
         <pre id="poemoutput" class="digitaltwinpoem" ></pre><br><br>
       </div>
         
+    </div>
   </div>
   
-  </div>
   
   <!-- <hr id="about"> -->
 
-  <!-- About Section -->
-    <div class="w3-container w3-padding-32 w3-center" style="color: #000">  
-      <h3>The poet</h3><br>
+    <!-- About Section -->
+    <div  class="w3-container w3-padding-32 w3-center" id="about" style="color: #000">  
+      <h3 >The poet</h3><br>
       <img src="images/Marcos_enlaRia.jpg" alt="Me" class="w3-image" style="display:block;margin:auto" width="800" height="533">
+
       <div class="w3-padding-32">
         <h4><b>Marcos de la Fuente</b></h4>
         <h6><i>Building my digital twin</i></h6>
@@ -147,49 +140,47 @@
           neuronal of the poet. A poetic digital self that will evolve in successive
           Poetry proposals 3.1, 3.2 and etc. </p>
       </div>
-   
+    
       
       <div class="w3-half w3-margin-bottom">
         <img src="images/Mariel_fotoperfilBN.jpg" alt="Mariel" style="width:50%">
-        
         <h3>Mariel Martinez</h3>
         <p class="w3-opacity">Coding developer</p>
         <p>Expirementing with AI to enrich the creation of the poet.</p>
-        
       </div>
+
       <div class="w3-half w3-margin-bottom">
         <img src="images/IsmaelFaro.jpg" alt="Ismael" style="width:50%">
-        
         <h3>Ismael Faro</h3>
         <p class="w3-opacity">AI Advisor</p>
         <p>Distinguished Engineer at IBM.</p>
-        
       </div>
+
     </div>
-  </div>
-  
 
-  <!-- Footer -->
-<footer id="media" class="bgimg-1 w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
-  <a href="#chromeAlert" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
-  <div class="w3-xlarge w3-section">
-    <a href="https://www.facebook.com/marcosmaniquies" target="_blank"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>
-    <a href="https://www.instagram.com/marcos_delafuente/" target="_blank"><i class="fa fa-instagram w3-hover-opacity"></i></a>
-    <i class="fa fa-twitter w3-hover-opacity"></i>
   </div>
-</footer>
 
-  <script>
-    // Script to open and close sidebar
-    function w3_open() {
-      document.getElementById("mySidebar").style.display = "block";
-    }
-      
-    function w3_close() {
-      document.getElementById("mySidebar").style.display = "none";
-    }
-  </script>
- <script src="js/chromedetector.js"></script>
-  <script src="src/interact.js"></script>
+      <!-- Footer -->
+  <footer id="media" class="bgimg-1 w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
+    <a href="#chromeAlert" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+    <div class="w3-xlarge w3-section">
+      <a href="https://www.facebook.com/marcosmaniquies" target="_blank"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>
+      <a href="https://www.instagram.com/marcos_delafuente/" target="_blank"><i class="fa fa-instagram w3-hover-opacity"></i></a>
+      <a href="https://www.youtube.com/user/Waskoi" target="_blank"><i class="fa fa-youtube w3-hover-opacity"></i></a>
+    </div>
+  </footer>
+
+    <script>
+      // Script to open and close sidebar
+      function w3_open() {
+        document.getElementById("mySidebar").style.display = "block";
+      }
+        
+      function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+      }
+    </script>
+  <script src="js/chromedetector.js"></script>
+    <script src="src/interact.js"></script>
   </body>
 </html>
