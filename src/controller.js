@@ -17,6 +17,12 @@ function keyTyped() {
     case "5":
         window.location.href="vis5.html?poem=burn_after_selling.es"
         break;
+    case "6":
+            window.location.href="video1.html"
+            break;
+    case "m":
+            window.location.href="index.es.html"
+            break;
     case "0":
         window.location.href="pause.html"
         break;
