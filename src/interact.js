@@ -25,6 +25,7 @@ function cleanPoem(poem){
     poem = poem.replace("\\n","\n")
     poem = poem.replace(",","\n")
     poem = poem.replace(".","\n")
+    poem = poem.replace(";","\n")
     poem = poem.replace("\\","\n")
     poem = poem.replace(/\\\//g, '\n')
     // poem = poem.replace( \,'\n')
@@ -78,4 +79,10 @@ function generatePoem(){
         console.log(toShow); // JSON data parsed by `data.json()` call
       });
 
+}
+
+function generate(element){
+  if(event.key === 'Enter') {
+    generatePoem()    
+  }
 }
