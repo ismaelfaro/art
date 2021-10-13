@@ -1,6 +1,6 @@
 let poemGenerate=[];
 let wordCounter=0;
-let speed = 800;
+let speed = 1250;
 let poemWords;
 let startTime = Math.ceil((Date.now() / speed))
 let word =""
@@ -72,7 +72,7 @@ function printwords(){
 
   textFont('monospace', 64);
   fill(255, 255, 255)
-  text(poemWords[wordCounter].replace(",",""),0,windowHeight/2,windowWidth)
+  text(poemWords[wordCounter].replace(",","").replace("!"," ").replace("¡"," ").replace("¿"," ").replace("?"," "),0,windowHeight/2,windowWidth)
   return poemWords[wordCounter]
 }
 

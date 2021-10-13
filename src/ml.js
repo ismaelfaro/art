@@ -13,7 +13,7 @@ const originWordSize = 8;
 let originWordNextPositionInY = originWordSize + 1;
 let text_print =""
 
-let speed = 300
+let speed = 350
 
 let startTime = Math.ceil((Date.now() / speed))
 

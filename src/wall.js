@@ -12,7 +12,7 @@ let originWord = "";
 const originWordSize = 8;
 let originWordNextPositionInY = originWordSize + 1;
 
-let speed = 300
+let speed = 920
 
 let startTime = Math.ceil((Date.now() / speed))
 
@@ -47,7 +47,7 @@ function draw() {
    
 function center_box(x,y, texto){
   fill("black")
-  rect(windowWidth/2-130, windowHeight/2-130, 260, 260);
+  rect(x, y, 260, 260);
   noStroke();
   textAlign(CENTER, CENTER);
   fill(0, 102, 153);
@@ -69,14 +69,14 @@ function backgroundText(originWord, originWordSize , x, y, font_color){
 
 function poem(number){
  
-  backTextSize = 3;
+  backTextSize = 4;
 
   word = listOfWords[number]
   center_box(windowWidth/2-130,windowHeight/2-130,word) ;
   iniText = ""
 
   for (let i = 0; i < number ; i++){
-    iniText += listOfWords[i];
+    iniText = iniText +" "+listOfWords[i];
   }
 
   originWord = iniText+ " " +listOfWords[number];
@@ -94,9 +94,6 @@ function printPoems(){
   line = (Math.ceil((Date.now() / speed)) - startTime) % poemGenerate.length;
 
   poem(line);
-
-  console.log(line)
-  console.log(listOfWords.length )
 
   if (line === listOfWords.length - 1){
     finish()
@@ -128,6 +125,9 @@ function finish(){
     aux = poemGenerate[i];
     backgroundText(aux.slice(originWord.length), backTextSize, textWidth(originWord)+ 3,  originWordNextPositionInY, "red");
   }
+
+  center_box((windowWidth/5)*4-130,windowHeight/5-130, "IA")
+  center_box(windowWidth/5-130,(windowHeight/5)*4-130, "HUMANO")
 
 }
 

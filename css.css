@@ -143,6 +143,10 @@ button {
 }
 
 @media screen and (max-width: 600px) {
+  .digitaltwinpoem{
+    width:100%;
+    float:none;
+  }
   .photogrid1 {
     width:100%;
     float:none;

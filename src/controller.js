@@ -18,12 +18,24 @@ function keyTyped() {
         window.location.href="vis5.html?poem=burn_after_selling.es"
         break;
     case "6":
-            window.location.href="video1.html"
-            break;
-    case "m":
-            window.location.href="index.es.html"
-            break;
+        window.location.href="shot1.html"
+        break;
+    case "7":
+        window.location.href="shot2.html"
+        break;
+    case "8":
+        window.location.href="shot3.html"
+        break;
+    case "9":
+        window.location.href="shot4.html"
+        break;
     case "0":
+        window.location.href="shot5.html"
+        break;
+    case "m":
+        window.location.href="index.es.html"
+        break;
+    case "q":
         window.location.href="pause.html"
         break;
     default:

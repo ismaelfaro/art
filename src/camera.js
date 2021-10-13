@@ -8,7 +8,7 @@ var poemGenerate=[];
 var wordCounter=0;
 var next = true;
 let mic;
-let speed = 400
+let speed = 1100 
 
 let textSize = 12
 
