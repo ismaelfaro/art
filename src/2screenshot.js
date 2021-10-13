@@ -13,9 +13,10 @@ function setup() {
 
   cnv=createCanvas(windowWidth, windowHeight)
  
-  background.resize(windowWidth,windowHeight)
+  ZOOM=1
+  background.resize(windowWidth*ZOOM,windowHeight*ZOOM*0.8)
   
-  image(background, 0, 0);
+  image(background, 0, 130);
 }
 
 
