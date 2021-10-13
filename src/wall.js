@@ -12,7 +12,7 @@ let originWord = "";
 const originWordSize = 8;
 let originWordNextPositionInY = originWordSize + 1;
 
-let speed = 920
+let speed = 900
 
 let startTime = Math.ceil((Date.now() / speed))
 
@@ -85,7 +85,7 @@ function poem(number){
   backgroundText(originWord, backTextSize, 0 , originWordNextPositionInY, 'white');
 
   aux = poemGenerate[number];
-  backgroundText(aux.slice(originWord.length), backTextSize, textWidth(originWord)+ 3,  originWordNextPositionInY, "red");
+  backgroundText(aux.slice(originWord.length).replace("^^ ","").replace("^ ",""), backTextSize, textWidth(originWord)+ 3,  originWordNextPositionInY, "red");
   
 }
 
@@ -123,11 +123,14 @@ function finish(){
     backgroundText(originWord, backTextSize, 0 , originWordNextPositionInY, 'white');
 
     aux = poemGenerate[i];
-    backgroundText(aux.slice(originWord.length), backTextSize, textWidth(originWord)+ 3,  originWordNextPositionInY, "red");
+    backgroundText(aux.slice(originWord.length).replace("^^ ","").replace("^ ",""), backTextSize, textWidth(originWord)+ 3,  originWordNextPositionInY, "red");
   }
 
-  center_box((windowWidth/5)*4-130,windowHeight/5-130, "IA")
-  center_box(windowWidth/5-130,(windowHeight/5)*4-130, "HUMANO")
+  center_box((windowWidth/5)*4-130,(listOfWords.length*4)/5-130, "IA")
+  center_box(windowWidth/5-130,((listOfWords.length*4)/5)*4-130, "HUMANO")
+
+  // center_box((windowWidth/5)*4-130,windowHeight/5-130, "IA")
+  // center_box(windowWidth/5-130,(windowHeight/5)*4-130, "HUMANO")
 
 }
 
