@@ -1,13 +1,14 @@
 let poem = ''
-// `pa:
-// La Casa is rise on the feelings
-// you can see this like a journey
-// re:
-// we love when you feel inspired
-// welcome to our Secret Garden
-// ###
-// pa:
-// `
+
+// Initialize Cloud Firestore through Firebase
+firebase.initializeApp({
+  apiKey: "AIzaSyCibkQ4NCKfrTcfJz-1Cb1SgIBopsmJRpg",
+  authDomain: "poesiaai.firebaseapp.com",
+  projectId: "poesiaai",
+});
+
+var db = firebase.firestore();
+
 
 let output = document.getElementById("poemoutput")
 let input = document.getElementById("poeminput")
@@ -75,6 +76,20 @@ function generatePoem(){
       .then(data => {
           toShow = data[0].generated_text
           output.innerText = cleanPoem(toShow.slice(poem.length, toShow.length))
+          
+          db.collection("poemas").add({
+            poem: toShow,
+            title: input.value,
+            language: browserLanguage.split("-")[0]
+           
+        })
+        .then((docRef) => {
+            console.log("Document written with ID: ", docRef.id);
+        })
+        .catch((error) => {
+            console.error("Error adding document: ", error);
+        });
+
           spinner.style.visibility = "hidden"
         console.log(toShow); // JSON data parsed by `data.json()` call
       });
