@@ -81,14 +81,13 @@ function generatePoem(){
             poem: toShow,
             title: input.value,
             language: browserLanguage.split("-")[0]
-           
-        })
-        .then((docRef) => {
-            console.log("Document written with ID: ", docRef.id);
-        })
-        .catch((error) => {
-            console.error("Error adding document: ", error);
-        });
+            })
+            .then((docRef) => {
+                console.log("Document written with ID: ", docRef.id);
+            })
+            .catch((error) => {
+                console.error("Error adding document: ", error);
+            });
 
           spinner.style.visibility = "hidden"
         console.log(toShow); // JSON data parsed by `data.json()` call
@@ -101,3 +100,5 @@ function generate(element){
     generatePoem()    
   }
 }
+
+generatePoem()
