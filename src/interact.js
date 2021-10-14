@@ -60,6 +60,21 @@ function FirstRequestToGraph(url, data) {
 }
 
 
+function savePoem(title, poem, language){
+  db.collection("poemas").add({
+    poem: poem,
+    title: title,
+    language: language
+    })
+    .then((docRef) => {
+        console.log("Document written with ID: ", docRef.id);
+    })
+    .catch((error) => {
+        console.error("Error adding document: ", error);
+    });
+
+}
+
 function generatePoem(){
     spinner.style.visibility = "visible"
     poemPluYou = poem + input.value 
@@ -77,18 +92,10 @@ function generatePoem(){
           toShow = data[0].generated_text
           output.innerText = cleanPoem(toShow.slice(poem.length, toShow.length))
           
-          db.collection("poemas").add({
-            poem: toShow,
-            title: input.value,
-            language: browserLanguage.split("-")[0]
-            })
-            .then((docRef) => {
-                console.log("Document written with ID: ", docRef.id);
-            })
-            .catch((error) => {
-                console.error("Error adding document: ", error);
-            });
-
+          if (input.value !=""){
+            savePoem(input.value ,toShow,browserLanguage.split("-")[0])
+          }
+          
           spinner.style.visibility = "hidden"
         console.log(toShow); // JSON data parsed by `data.json()` call
       });
