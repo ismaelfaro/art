@@ -35,7 +35,7 @@ function cleanPoem(poem){
     poem = poem.split("\/").join("\n")
     poem = poem.replace(/\\\//g, '\n')
     poem = poem.replace(/\\/g, '\n')
-    console.log("---",poem)
+    // console.log("---",poem)
     lines = poem.split("\n").slice(0, 10).join("\n")
     return lines
 }
@@ -77,27 +77,38 @@ function savePoem(title, poem, language){
 
 function generatePoem(){
     spinner.style.visibility = "visible"
-    poemPluYou = poem + input.value 
-    console.log(poemPluYou)
+ 
+
+    initText=''
+   
     let urlAPI = "https://poems.asst.workers.dev"
     var browserLanguage = navigator.language
     if (browserLanguage.split("-")[0] == "es"){
         urlAPI = urlAPI + '/?language=es'
+        initText = "en un lugar, metaverso"
       } else {
         urlAPI = urlAPI + '/?language=en'
+        initText = "one place, metaverse"
       }
 
-    FirstRequestToGraph(urlAPI,poemPluYou)
+      if (input.value === '') {
+        poem=initText
+      } else {
+        poem=input.value
+      }
+    
+    console.log(poem)
+    FirstRequestToGraph(urlAPI,poem)
       .then(data => {
           toShow = data[0].generated_text
-          output.innerText = cleanPoem(toShow.slice(poem.length, toShow.length))
+          output.innerText = cleanPoem(toShow.slice(0, toShow.length))
           
           if (input.value !=""){
             savePoem(input.value ,toShow,browserLanguage.split("-")[0])
           }
           
           spinner.style.visibility = "hidden"
-        console.log(toShow); // JSON data parsed by `data.json()` call
+        // console.log(toShow); // JSON data parsed by `data.json()` call
       });
 
 }
@@ -109,3 +120,7 @@ function generate(element){
 }
 
 generatePoem()
+
+input = document.getElementById('poeminput');
+input.focus();
+input.select();
