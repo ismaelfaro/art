@@ -85,7 +85,7 @@ function generatePoem(){
     var browserLanguage = navigator.language
     if (browserLanguage.split("-")[0] == "es"){
         urlAPI = urlAPI + '/?language=es'
-        initText = "en un lugar, metaverso"
+        initText = "un lugar, metaverso"
       } else {
         urlAPI = urlAPI + '/?language=en'
         initText = "one place, metaverse"
