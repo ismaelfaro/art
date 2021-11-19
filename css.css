@@ -89,7 +89,7 @@ background-size: cover;
 /* First image (Logo. Full height) */
 .bgimg-1 {
 background-image: url('images/background_color.jpg');
-min-height: 100%;
+min-height: 850px;
 opacity: 100%;
 }
 
@@ -141,6 +141,7 @@ button {
   padding: 16px;
   width: 230px;
 }
+
 
 @media screen and (max-width: 600px) {
   .digitaltwinpoem{
