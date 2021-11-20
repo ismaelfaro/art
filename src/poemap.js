@@ -134,17 +134,12 @@ function setup(data){
 
     pointer = L.circleMarker(position,{color: "#AAAAFF", radius: 20}).addTo(map);
 
-    console.log(position)
 }
 
 function updateposition(data){
     position = [data.coords.latitude,data.coords.longitude]
     map.panTo(new L.LatLng(position[0],position[1]));
     pointer.setLatLng(position)
-
-    console.log(position[0]-bound1[0],bound2[0]-position[0])
-    console.log(position[1]-bound1[1],bound2[1]-position[1])
-
     
     if (position[0]-bound1[0] > 0 && bound2[0]-position[0] > 0 && position[1]-bound1[1] > 0 && bound2[1]-position[1] > 0) {
         widget.innerHTML = "<pre>"+poem+"<pre>"
