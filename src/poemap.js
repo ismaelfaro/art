@@ -72,6 +72,7 @@ function setup(data){
 
 function updateposition(data){
     position = [data.coords.latitude,data.coords.longitude]
+    map.panTo(new L.LatLng(position[0],position[1]));
     pointer.setLatLng(position)
 }
 
