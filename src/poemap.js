@@ -1,8 +1,7 @@
 
 var zoom = 20;
 var position = [51.505, -0.09];
-
-
+var pointer = null;
 
 
 // var grayscale = L.tileLayer(mapboxUrl, {id: 'MapID', tileSize: 512, zoomOffset: -1, attribution: mapboxAttribution});
@@ -41,7 +40,7 @@ var mymap =  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}
 
 
 
-function reposition(data){
+function setup(data){
 
     xSize = 0.00015
     ySize = 0.0002
@@ -66,14 +65,20 @@ function reposition(data){
     bound2 = [position[0] + xSize/2 ,position[1] + ySize/2]
     L.rectangle([bound2,bound1], {color: "#FFFFFF", weight: 1}).addTo(map);
 
-    L.circleMarker(position,{color: "#FFFFFF", radius: 20}).addTo(map);
+    pointer = L.circleMarker(position,{color: "#AAAAFF", radius: 20}).addTo(map);
 
-    // mymap.setView(position, zoom); 
     console.log(position)
 }
 
+function updateposition(data){
+    position = [data.coords.latitude,data.coords.longitude]
+    pointer.setLatLng(position)
+}
 
-navigator.geolocation.getCurrentPosition(reposition)
+function reposition(){
+    navigator.geolocation.getCurrentPosition(updateposition)
+}
 
+navigator.geolocation.getCurrentPosition(setup)
 
-
+var updatepos = setInterval(reposition, 1000)
