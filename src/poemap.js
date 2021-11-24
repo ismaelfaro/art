@@ -111,8 +111,8 @@ var mymap =  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}
 
 function setup(data){
     
-    xSize = 0.00015
-    ySize = 0.0002
+    // xSize = 0.00015
+    // ySize = 0.0002
     xSize = 0.00007
     ySize = 0.0001
     position = [data.coords.latitude,data.coords.longitude]
@@ -134,9 +134,12 @@ function setup(data){
 
     bound1 = [position[0] - xSize/2 ,position[1] - ySize/2]
     bound2 = [position[0] + xSize/2 ,position[1] + ySize/2]
+    
     L.rectangle([bound2,bound1], {color: "#FFFFFF", weight: 1}).addTo(map);
 
     pointer = L.circleMarker(position,{color: "#AAAAFF", radius: 20}).addTo(map);
+
+    var updatepos = setInterval(reposition, 1000)
 
 }
 
@@ -157,6 +160,8 @@ function reposition(){
     navigator.geolocation.getCurrentPosition(updateposition)
 }
 
+
+
 navigator.geolocation.getCurrentPosition(setup)
 
-var updatepos = setInterval(reposition, 1000)
+
