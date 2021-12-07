@@ -50,11 +50,12 @@
     <!-- Sidebar (hidden by default) -->
   <nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left w3-black" style="display:none;z-index:2;width:40%;min-width:300px;color: #fff;" id="mySidebar">
     <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button ">Cerrar Menu</a>
-    <a href="#comingEvent" onclick="w3_close()" class="w3-bar-item w3-button" >Próximo evento</a>
+
     <a href="#experimentation" onclick="w3_close()" class="w3-bar-item w3-button">Experimentación</a>
     <a href="#AI" onclick="w3_close()" class="w3-bar-item w3-button">Prueba la IA</a>
     <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">Quienes somos</a>
     <a href="#media" onclick="w3_close()" class="w3-bar-item w3-button">Media</a>
+    <a href="#events" onclick="w3_close()" class="w3-bar-item w3-button" >Eventos pasados</a>
     <a href="prensa.html" onclick="w3_close()" class="w3-bar-item w3-button" target="_blank">Prensa</a>
   </nav>
  
@@ -77,8 +78,8 @@
   </div>
 
 <!-- Coming events -->
-<hr id="comingEvent" style="opacity: 0%;" >
-  <div  class="w3-padding-16 w3-center" style="margin-top: 50px;" > 
+<!-- <hr id="comingEvent" style="opacity: 0%;" > 
+   <div  class="w3-padding-16 w3-center" style="margin-top: 50px;" > 
     <h1> Próximo evento</h1>
     <img src="comingEvents/The_poetry_of_algorithm_becomes_art_at_New_York_gallery/TheMyntGalleryFlyer.jpg" style="max-width:400px;margin:auto">
     
@@ -86,6 +87,7 @@
     <a href="comingEvents/The_poetry_of_algorithm_becomes_art_at_New_York_gallery/TheMyntGallery_Nov11_2021_es.pdf" class="w3-button w3-white w3-border w3-border-white w3-round-large" target="_blank">Más información</a>
 
   </div>
+   -->
   <hr id="experimentation" style="opacity: 0%;" >
     <!-- !PAGE CONTENT! -->
 
@@ -216,6 +218,28 @@
     <a href="https://www.instagram.com/marcos_delafuente/" target="_blank"><i class="fa fa-instagram w3-hover-opacity" style="font-size: 50px;"></i></a>
     <a href="https://www.youtube.com/user/Waskoi" target="_blank"><i class="fa fa-youtube w3-hover-opacity" style="font-size: 50px;"></i></a>
   </div>
+
+  <h2 id="events">Eventos pasados</h2>
+  <div class="w3-row w3-padding-32 " style="max-width: 1200px; margin: auto;">
+    
+
+    <div class="w3-card-4 w3-half w3-center" style="max-width:300px; margin-left: 200px; ">
+      <div class="w3-container w3-center w3-blue">
+        <p>Manhattan / 20 Noviembre, 2021</p>
+      </div>
+      <img src="events/2021_nov/The_poetry_of_algorithm_becomes_art_at_New_York_gallery/TheMyntGalleryFlyer_smallSize.jpg" alt="Alps" style="width:100%">
+    </div>
+
+    <div class="w3-card-4 w3-half w3-center" style="max-width:300px; margin-left: 200px;">
+      <div class="w3-container w3-center w3-blue" >
+        <p>Vigo / 13 Octubre, 2021</p>
+      </div>
+      <a href="https://youtu.be/0dQyMTqAj5A" target="_blank">
+        <img src="events/2021_oct/Vigo_poetaVsLaMaquina.jpg" alt="Alps" style="width:100%">
+      </a>
+    </div>
+
+  </div>
 </footer>
 
   <script>
@@ -236,76 +260,6 @@
  <script src="js/chromedetector.js"></script>
   <script src="src/interact.js"></script>
 
-<script>
-  // function openPoem() {
-  // document.getElementById("openPoems").innerHTML = `<nav class="w3-sidebar w3-card w3-xlarge w3-animate-left w3-black" id="mySidebar">
-  //         <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button ">Cerrar Menu</a>
-  //         <div class="widget">
-  //           <pre>
-  //           El arte es un juego 
-  //           y no todo el mundo está invitado a jugar,
-  //           El arte es un juego 
-  //           y si Picasso hubiese nacido en Botswana 
-  //           nadie estaría comprándo postales 
-  //           printadas con sus obras 
-  //           en la tienda de regalos del MET,
-            
-  //           El arte es lo que nosotros acordemos que es arte,
-  //           Y si alguien no está de acuerdo 
-  //           lo llamaremos hereje y lo lanzaremos al Hudson 
-  //           con una escultura de Robert Indiana atada a su pierna,
-            
-  //           Será arte si no se hunde en el río,
-  //           Será arte si cinco ceros se ponen en fila 
-  //           para entrar en tu wallet,
-  //           Será arte si huele como el oro, 
-  //           si sabe como el oro, 
-  //           si pesa lo mismo que el oro,
-            
-  //           Será arte si dejas de repetirme 
-  //           lo bueno que es y te paras a mirarlo, 
-  //           si dejas de intentar entenderlo, 
-  //           de explicarlo,
-            
-  //           Picasso en Botswana repartiendo pulas 
-  //           y en las paredes del MOMA 
-  //           cuelgan pedazos de ego derretido,
-  //           sin mar,
-  //           sin gente,
-  //           Ríos de personas haciendo NO lo que sienten, 
-  //           si no lo que se supone que deben hacer, 
-  //           lo que alguien les dijo que deben hacer  
-  //           lo que leyeron en el Time Out New York 
-  //           en el Brooklyn Rail,
-            
-  //           Suena un setinkane y alguien sopla un phala,
-  //           Picasso camina lentamente 
-  //           por las calles de Gaborone mientras 
-  //           al otro lado del mundo 
-  //           un cuadro que no fue pintado por él 
-  //           se vende por millones de dolares,
-  //           Nadie sabe quien es Picasso
-  //         </pre>
-  //         </div>
-  //       </nav>`;
-  // }
-</script>
-
-  <!-- Matomo -->
-<script>
-  var _paq = window._paq = window._paq || [];
-  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="https://poemsai.matomo.cloud/";
-    _paq.push(['setTrackerUrl', u+'matomo.php']);
-    _paq.push(['setSiteId', '1']);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.async=true; g.src='//cdn.matomo.cloud/poemsai.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-<!-- End Matomo Code -->
    <!-- Global site tag (gtag.js) - Google Analytics -->
    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SHWGPQHGLK"></script>
    <script>
